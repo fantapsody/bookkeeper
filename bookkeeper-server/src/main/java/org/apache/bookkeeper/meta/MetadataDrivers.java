@@ -58,6 +58,8 @@ public final class MetadataDrivers {
 
     static final String ZK_CLIENT_DRIVER_CLASS = "org.apache.bookkeeper.meta.zk.ZKMetadataClientDriver";
     static final String ZK_BOOKIE_DRIVER_CLASS = "org.apache.bookkeeper.meta.zk.ZKMetadataBookieDriver";
+    static final String RAFT_CLIENT_DRIVER_CLASS = "org.apache.bookkeeper.meta.store.driver.impl.raft.RaftMetadataStoreClientDriver";
+    static final String RAFT_BOOKIE_DRIVER_CLASS = "org.apache.bookkeeper.meta.store.driver.impl.raft.RaftMetadataStoreBookieDriver";
     static final String BK_METADATA_CLIENT_DRIVERS_PROPERTY = "bookkeeper.metadata.client.drivers";
     static final String BK_METADATA_BOOKIE_DRIVERS_PROPERTY = "bookkeeper.metadata.bookie.drivers";
 
@@ -110,6 +112,7 @@ public final class MetadataDrivers {
 
         // add default zookeeper based driver
         driverList.add(ZK_CLIENT_DRIVER_CLASS);
+        driverList.add(RAFT_CLIENT_DRIVER_CLASS);
 
         // load drivers from system property
         String driversStr = System.getProperty(BK_METADATA_CLIENT_DRIVERS_PROPERTY);
@@ -137,6 +140,7 @@ public final class MetadataDrivers {
 
         // add default zookeeper based driver
         driverList.add(ZK_BOOKIE_DRIVER_CLASS);
+        driverList.add(RAFT_BOOKIE_DRIVER_CLASS);
 
         // load drivers from system property
         String driversStr = System.getProperty(BK_METADATA_BOOKIE_DRIVERS_PROPERTY);
